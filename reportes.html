@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/46da04e41b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <title>AhorrADAS - Reportes</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar has-shadow is-spaced is-dark"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <h1 class="title has-text-white">
+              <i class="fas fa-wallet mr-2" aria-hidden="true"></i>
+              AhorrADAS
+            </h1>
+          </a>
+          <div
+            class="navbar-burger burger"
+            aria-label="menu"
+            aria-expanded="false" id="burger" onclick="toggleBurger()"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </div>
+          </div>
+          <!--Burger menu options-->
+          <div id="teamList" class="navbar-menu">
+            <div class="navbar-dropdown">
+              <a class="navbar-item " href="./index.html">Balance</a>
+               <a class="navbar-item " href="./categorias.html">Categorías</a>
+                <a class="navbar-item " href="./reportes.html">Reportes</a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <!-- navbar items -->
+            <a href="./index.html" class="navbar-item" id="balance"
+              ><i class="fas fa-chart-line mr-2"></i> Balance
+            </a>
+            <a href="./categorias.html" class="navbar-item" id="categorias"
+              ><i class="fas fa-tag mr-2"></i> Categorías
+            </a>
+            <a href="./reportes.html" class="navbar-item" id="reportes"
+              ><i class="fas fa-chart-pie mr-2"></i> Reportes
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--Box Reportes-->
+    <section class="section" id="section_categorias">
+      <div class="container is-8-widescreen is-10-desktop">
+        <div class="box" id="categorias_box">
+          <div class="column vcentered">
+            <h2 class="is-size-4 has-text-weight-bold mb-6">Reportes</h2>
+            <div class="container is-hidden" id="reportsContainer">
+            <!--Resumen Table-->
+            <table class="table is-fullwidth mb-4" id="resumenReportTable">
+              <thead>                    
+                <h2 class="is-size-4 has-text-weight-bold mb-4">Resumen</h2>
+                <tr class="has-text-left">
+                  <td class="has-text-weight-bold">Categoria con mayor ganancia</td>  
+                  <td class="has-text-weight-bold"><p id="catMayorGananciaTag"></p></td> 
+                   <td class="has-text-weight-bold"><p id="catMayorGananciaValor"></p></td> 
+                  </tr>
+                  <tr class="has-text-left">
+                    <td class="has-text-weight-bold">Categoria con mayor gasto</td>  
+                    <td class="has-text-weight-bold"><p id="catMayorGastoTag"></p></td> 
+                   <td class="has-text-weight-bold"><p id="catMayorGastoValor"></p></td> 
+                  </tr>
+                  <tr class="has-text-left">
+                  <td class="has-text-weight-bold">Categoria con mayor balance</td>  
+                   <td class="has-text-weight-bold"><p id="catMayorBalanceTag"></p></td> 
+                   <td class="has-text-weight-bold"><p id="catMayorBalanceValor"></p></td> 
+                  </tr>
+                  <tr class="has-text-left">
+                  <td class="has-text-weight-bold">Mes con mayor ganancia</td>
+                  <td class="has-text-weight-bold"><p id="mesGananciaMayorTAG"></p></td> 
+                   <td class="has-text-weight-bold"><p id="valorMesGananciaMayor"></p></td> 
+                </tr>
+                  <tr class="has-text-left">
+                  <td class="has-text-weight-bold">Mes con mayor gasto</td>      
+                  <td class="has-text-weight-bold"><p id="mesGastoMayorTAG"></p></td> 
+                   <td class="has-text-weight-bold"><p id="valorMesGastoMayor"></p></td>            
+                  </tr>
+                </tr>
+              </thead>
+              <tbody id="resumenReportTableBody"></tbody>
+            </table>
+            <!---->
+            <!--Totales por Categoria Table-->
+            <table class="table is-fullwidth mb-4" id="totalXCategTable">
+              <thead>
+                <h2 class="is-size-4 has-text-weight-bold mb-4">Totales por categoria</h2>
+                <tr class="has-text-left">
+                  <td class="has-text-weight-bold">Categoria</td>  
+                  <td class="has-text-weight-bold">Ganancias</td>  
+                  <td class="has-text-weight-bold">Gastos</td>  
+                  <td class="has-text-weight-bold">Balance</td>  
+                </tr>
+              </thead>
+              <tbody id="totalXCategTableBody"></tbody>
+            </table>
+            <!---->
+            <!--Totales por Mes Table-->
+            <table class="table is-fullwidth mb-4" id="totalXMesTable">
+              <h2 class="is-size-4 has-text-weight-bold mb-4">Totales por mes</h2>
+              <thead>
+                <tr class="has-text-left">
+                  <td class="has-text-weight-bold">Mes</td>  
+                  <td class="has-text-weight-bold">Ganancias</td>  
+                  <td class="has-text-weight-bold">Gastos</td>  
+                  <td class="has-text-weight-bold">Balance</td>  
+                </tr>
+              </thead>
+              <tbody id="totalXMesTableBody"></tbody>
+            </table>
+            <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/reportes.js"></script>
+  </body>
+</html>
